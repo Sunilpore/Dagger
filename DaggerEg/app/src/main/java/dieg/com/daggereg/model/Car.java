@@ -19,6 +19,7 @@ public class Car {
 
     public void drive(){
         LogHelper.showLogData("drive the car...");
+        engine.start();
     }
 
 }

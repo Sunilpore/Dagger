@@ -9,11 +9,16 @@ import dieg.com.daggereg.R;
 import dieg.com.daggereg.common_interfaces.CarComponents;
 import dieg.com.daggereg.common_interfaces.DaggerCarComponents;
 import dieg.com.daggereg.method_injection.MethCar;
+import dieg.com.daggereg.model.Car;
+import dieg.com.daggereg.model.Engine;
 
 public class ModuleProviderActivity extends AppCompatActivity {
 
     @Inject
-    MethCar car;
+    MethCar methCar;
+
+    @Inject
+    Engine engine;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +28,10 @@ public class ModuleProviderActivity extends AppCompatActivity {
         CarComponents carComponents = DaggerCarComponents.create();
 
         carComponents.inject(this);
-        car.drive();
+
+        engine.start();
+        methCar.drive();
+
 
     }
 

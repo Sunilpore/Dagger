@@ -20,7 +20,6 @@ public class ConstructorInjectActivity extends AppCompatActivity {
         setContentView(R.layout.activity_constructor_inject);
 
         CarComponents carComponents = DaggerCarComponents.create();
-
         car = carComponents.getCar();
         car.drive();
 

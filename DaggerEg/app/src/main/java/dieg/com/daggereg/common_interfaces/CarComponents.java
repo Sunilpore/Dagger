@@ -5,9 +5,10 @@ import dieg.com.daggereg.field_injection.FieldInjectActivity;
 import dieg.com.daggereg.method_injection.MethodInjectActivity;
 import dieg.com.daggereg.model.Car;
 import dieg.com.daggereg.modules_provider_method.ModuleProviderActivity;
+import dieg.com.daggereg.modules_provider_method.PetrolEngineModule;
 import dieg.com.daggereg.modules_provider_method.WheelsModule;
 
-@Component(modules =WheelsModule.class)
+@Component(modules ={WheelsModule.class, PetrolEngineModule.class})
 public interface CarComponents {
 
     Car getCar();

@@ -1,4 +1,4 @@
-package dieg.com.daggereg.model;
+package com.daggereg1.model;
 
 import javax.inject.Inject;
 

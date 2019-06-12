@@ -6,7 +6,6 @@ import android.os.Bundle;
 
 import javax.inject.Inject;
 
-import dieg.com.daggereg.DaggerAppComponent;
 import dieg.com.daggereg.R;
 import dieg.com.daggereg.common_interfaces.CarComponents;
 import dieg.com.daggereg.common_interfaces.DaggerCarComponents;
@@ -23,7 +22,6 @@ public class MethodInjectActivity extends AppCompatActivity {
 
 
         CarComponents carComponents = DaggerCarComponents.create();
-
         carComponents.inject(this);
         car.drive();
 

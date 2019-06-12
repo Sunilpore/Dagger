@@ -36,7 +36,7 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ((SportsApplication) getApplication())
+      /*  ((SportsApplication) getApplication())
                 .getMyComponent()
                 .inject(MainActivity.this);
 
@@ -46,7 +46,7 @@ public class MainActivity extends BaseActivity {
 
         pref.setUserName("Sam");pref.setUserAge("18");pref.setCheck(true);
 
-        LogHelper.showLogData("UserName: "+pref.getUserName()+" \tAge: "+pref.getUserAge()+" \tstatus: "+pref.getCheck());
+        LogHelper.showLogData("UserName: "+pref.getUserName()+" \tAge: "+pref.getUserAge()+" \tstatus: "+pref.getCheck());*/
 
         /*//to write in sharedpref
         SharedPreferences.Editor prefEditor = mSP.edit();
@@ -61,8 +61,8 @@ public class MainActivity extends BaseActivity {
         LogHelper.showLogData("name: "+name+" \t age: "+age);*/
 
         //Intent i = new Intent(this,ConstructorInjectActivity.class);
-       // Intent i = new Intent(this,ModuleProviderActivity.class);
-       // startActivity(i);
+        Intent i = new Intent(this,ModuleProviderActivity.class);
+        startActivity(i);
 
     }
 
