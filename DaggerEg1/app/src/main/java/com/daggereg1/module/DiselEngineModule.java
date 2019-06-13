@@ -21,8 +21,19 @@ public class DiselEngineModule {
     }
 
     @Provides
+    int provideHorsePower(){
+        return horsePower;
+    }
+
+    /*@Provides
     Engine provideEngine(){
         return new DiselEngine(horsePower);
+    }*/
+
+
+    @Provides
+    Engine provideEngine(DiselEngine diselEngine){
+        return diselEngine;
     }
 
     /*@Binds

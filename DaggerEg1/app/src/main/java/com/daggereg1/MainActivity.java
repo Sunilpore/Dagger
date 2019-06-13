@@ -24,10 +24,14 @@ public class MainActivity extends AppCompatActivity {
          * create method is prefer when we don't need to pass any argument via constructor
          * else use builder
          */
-        CarComponents carComponents = DaggerCarComponents.builder()
+        /*CarComponents carComponents = DaggerCarComponents.builder()
                 .diselEngineModule(new DiselEngineModule(100))
-                .build();
+                .build();*/
 
+        CarComponents carComponents = DaggerCarComponents.builder()
+                .horsePower(150)
+                .engineCapacity(1400)
+                .build();
 
         //CarComponents carComponents = null;
         carComponents.inject(this);
