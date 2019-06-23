@@ -7,6 +7,7 @@ import com.daggereg1.module.PetrolEngineModule;
 import com.daggereg1.module.WheelsModule;
 
 import javax.inject.Named;
+import javax.inject.Singleton;
 
 import dagger.BindsInstance;
 import dagger.Component;
@@ -15,6 +16,7 @@ import dagger.Component;
 //Here we cannot put PetrolEngineModule and DiselEngineModule inside Component module
 // else dagger will throw duplicate error
 
+@Singleton
 @Component(modules ={WheelsModule.class, PetrolEngineModule.class/*, DiselEngineModule.class*/})
 public interface CarComponents {
 

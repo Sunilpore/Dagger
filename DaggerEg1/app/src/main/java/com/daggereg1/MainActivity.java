@@ -12,8 +12,13 @@ import javax.inject.Inject;
 
 public class MainActivity extends AppCompatActivity {
 
+    /**
+     * @Singleton - provide same instance of obj car and car2 for same CarComponents class.
+     * But if you create new instance of CarComponents then it will generate new instance of car
+     */
+
     @Inject
-    Car car;
+    Car car, car2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,16 +33,17 @@ public class MainActivity extends AppCompatActivity {
                 .diselEngineModule(new DiselEngineModule(100))
                 .build();*/
 
-        CarComponents carComponents = DaggerCarComponents.builder()
+       /* CarComponents carComponents = DaggerCarComponents.builder()
                 .horsePower(150)
                 .engineCapacity(1400)
-                .build();
+                .build();*/
+       CarComponents carComponents = ( (ExampleApp) getApplication()).getAppComponent();
 
         //CarComponents carComponents = null;
         carComponents.inject(this);
 
         car.drive();
-
+        car2.drive();
     }
 
 

@@ -26,6 +26,9 @@ public abstract class PetrolEngineModule {
      * So whenever we want to bind implementation to an interface then we should use @bind instead of @provide
      * @Binds -> takes only single parameter and use single implemented class inside @component at a time
      */
+
+    //At here you can give @Singleton annotation inside method for PetrolEngine
+    //i.e. bindEngine(@Singleton ) as dagger will not create method , it will directly instantiated object directly
     @Binds
     abstract Engine bindEngine(PetrolEngine engine);
 
