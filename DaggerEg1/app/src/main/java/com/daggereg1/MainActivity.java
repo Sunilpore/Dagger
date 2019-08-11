@@ -3,19 +3,13 @@ package com.daggereg1;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.daggereg1.component.CarComponents;
-import com.daggereg1.component.DaggerCarComponents;
+import com.daggereg1.component.ActivityComponents;
+import com.daggereg1.component.DaggerActivityComponents;
 import com.daggereg1.model.Car;
-import com.daggereg1.module.DiselEngineModule;
 
 import javax.inject.Inject;
 
 public class MainActivity extends AppCompatActivity {
-
-    /**
-     * @Singleton - provide same instance of obj car and car2 for same CarComponents class.
-     * But if you create new instance of CarComponents then it will generate new instance of car
-     */
 
     @Inject
     Car car, car2;
@@ -29,21 +23,36 @@ public class MainActivity extends AppCompatActivity {
          * create method is prefer when we don't need to pass any argument via constructor
          * else use builder
          */
-        /*CarComponents carComponents = DaggerCarComponents.builder()
+        /*ActivityComponents carComponents = DaggerCarComponents.builder()
                 .diselEngineModule(new DiselEngineModule(100))
                 .build();*/
 
-       /* CarComponents carComponents = DaggerCarComponents.builder()
+        /*ActivityComponents carComponents = DaggerCarComponents.builder()
                 .horsePower(150)
                 .engineCapacity(1400)
                 .build();*/
-       CarComponents carComponents = ( (ExampleApp) getApplication()).getAppComponent();
 
-        //CarComponents carComponents = null;
-        carComponents.inject(this);
+        //ActivityComponents carComponents = ((ExampleApp)getApplication()).getAppComponent();
+
+        ActivityComponents components = DaggerActivityComponents.builder()
+                                        .horsePower(200)
+                                        .engineCapacity(1700)
+                                        .appComponent(((ExampleApp) getApplication()).getAppComponent())
+                                        .build();
+
+        //ActivityComponents carComponents = null;
+        components.inject(this);
+
+        /**
+         * So here car is scope to Activity level, while Driver is scope at application level
+         * means there is new instance of car is created when activity is created
+         * but Driver create single instance throughout the Application
+         */
+
 
         car.drive();
         car2.drive();
+
     }
 
 
